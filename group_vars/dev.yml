@@ -1,0 +1,4 @@
+# une approche plus dynanmique 
+# deploy_ssh_key: "{{ lookup('file', '/home/deploy/.ssh/id_rsa.pub') }}"
+
+deploy_ssh_key: 

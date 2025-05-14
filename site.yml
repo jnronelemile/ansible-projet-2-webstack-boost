@@ -1,0 +1,10 @@
+---
+
+- name: Deploement du stack web avec Ansible
+  hosts: web
+  become: true
+
+  roles:
+    - { role: user, name: 'configure_web_user', tags: ['user']}
+    - { role: firewall, name: 'setup_web_firewall', tags: ['firewale']}
+    - { role: web, name: 'deploy_webserver', tags: ['web']}

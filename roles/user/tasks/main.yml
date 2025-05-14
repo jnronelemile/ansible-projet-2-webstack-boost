@@ -1,0 +1,29 @@
+---
+
+- name: Creer l'utilisateur deploy
+  user:
+    name: deploy
+    shell: /bin/bash
+    groups: sudo
+    state: present
+    create_home: true
+
+- name: Creer le repertoire .ssh pour seploy
+  file:
+    path: /home/deploy/.ssh
+    state: directory
+    owner: deploy
+    groups: deploy
+    mode: '0700'
+
+- name: Autoriser la cle publique SSH pour deploy
+  copy:
+    dest: /home/deploy/.ssh/authorized_keys
+    content: "{{ deploy_ssh_key }}"
+    owner: deploy
+    group: deploy
+    mode: '0600'
+
+
+
+    
