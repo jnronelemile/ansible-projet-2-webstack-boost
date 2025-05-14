@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
 
       # Dossier partagé uniquement pour le master
       if name == "ansible-master"
-        node.vm.synced_folder "#{PROJECT_PATH}/ansible-2-webstack-boost", "/home/vagrant/ansible-webstack-boost"
+        node.vm.synced_folder PROJECT_PATH, "/home/vagrant/ansible-webstack-boost"
       end
 
       node.vm.provision "shell", inline: <<-SHELL
