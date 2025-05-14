@@ -1,0 +1,26 @@
+# Fichiers temporaires
+*.retry
+*.log
+
+# Clés SSH
+*.pem
+*.pub
+*.key
+id_*
+
+# Fichiers d'exécution Ansible
+*.pyc
+__pycache__/
+
+# Dossiers système
+.vagrant/
+.idea/
+.DS_Store
+*.swp
+*.bak
+
+# Roles installés via galaxy
+#roles/*/
+#!roles/server_setup/          
+
+
