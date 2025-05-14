@@ -1,26 +1,33 @@
-# Fichiers temporaires
+# === FICHIERS TEMPORAIRES ANSIBLE ===
 *.retry
 *.log
 
-# Clés SSH
+# === CLÉS SSH ===
 *.pem
 *.pub
 *.key
 id_*
+deploy_key
+deploy_key.pub
 
-# Fichiers d'exécution Ansible
+# === PYTHON / CACHE ===
 *.pyc
 __pycache__/
 
-# Dossiers système
-.vagrant/
-.idea/
-.DS_Store
+# === ÉDITEURS ===
 *.swp
 *.bak
+.DS_Store
+.idea/
 
-# Roles installés via galaxy
-#roles/*/
-#!roles/server_setup/          
+# === VAGRANT ===
+.vagrant/
 
+# === ROLES DÉPLOYÉS PAR ANSIBLE GALAXY ===
+roles/*/
+!roles/web/
+!roles/firewall/
+!roles/user/
 
+# === VARS SENSIBLES ===
+group_vars/*_vault.yml
