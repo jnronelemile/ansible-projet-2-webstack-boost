@@ -1,0 +1,30 @@
+---
+
+- name: Installer UFW
+  apt:
+    name: ufw
+    state: presente
+    update_cache: yes
+
+- name: Autoriser SSH
+  ufw:
+    rule: allow
+    port: '22'
+  when: enable_firewall
+
+- name: Autoriser HTTP
+  ufw:
+    rule: allow
+    port: '80'
+  when: enable_firewall
+
+- name: Autoriser HTTPS
+  ufw:
+    rule: allow
+    port: '443'
+  when: enable_firewall
+
+- name: Activer le pare-feu UFW
+  ufw: 
+    state: enabled
+  when: enable_firewall

@@ -4,9 +4,8 @@ Vagrant.configure("2") do |config|
   # ram: 1536 
   NODES = {
     "ansible-master" => { ip: "192.168.56.10", ram: 1200 },
-    "node1"          => { ip: "192.168.56.11", ram: 900 },
+    "web"          => { ip: "192.168.56.11", ram: 900 },
   }
-
   # Obtenir le chemin absolu du dossier Vagrant
   PROJECT_PATH = File.dirname(__FILE__)
 

@@ -1,4 +1,7 @@
 # une approche plus dynanmique 
 # deploy_ssh_key: "{{ lookup('file', '/home/deploy/.ssh/id_rsa.pub') }}"
 
+# pour genere la cle: [ssh-keygen -t ed25519 -f ~/.ssh/deploy_key -N ""] dans machine-master
 deploy_ssh_key: 
+
+enable_firewall: true
