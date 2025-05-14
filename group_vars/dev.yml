@@ -1,7 +1,8 @@
 # une approche plus dynanmique 
 # deploy_ssh_key: "{{ lookup('file', '/home/deploy/.ssh/id_rsa.pub') }}"
 
-# pour genere la cle: [ssh-keygen -t ed25519 -f ~/.ssh/deploy_key -N ""] dans machine-master
-deploy_ssh_key: 
+# For genere the key ssh : [ssh-keygen -t ed25519 -f ~/.ssh/deploy_key -N ""] dans machine-master
+deploy_ssh_key: | 
+  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICmvhpwM3vWMEiywkosv1rFG14tKtQz36vdGbyOkBwWP vagrant@ansible-master
 
 enable_firewall: true
