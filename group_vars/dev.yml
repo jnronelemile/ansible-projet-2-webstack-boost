@@ -3,7 +3,7 @@
 
 # For genere the key ssh : [ssh-keygen -t ed25519 -f ~/.ssh/deploy_key -N ""] dans machine-master
 deploy_ssh_key: | 
-  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICmvhpwM3vWMEiywkosv1rFG14tKtQz36vdGbyOkBwWP vagrant@ansible-master
+  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBRP44Zilc/NJ5mrEwvzcI7TZu66Du0CXYjQi/42/KVr vagrant@ansible-master
 
 enable_firewall: true
 
