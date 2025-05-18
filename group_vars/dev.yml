@@ -6,3 +6,6 @@ deploy_ssh_key: |
   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICmvhpwM3vWMEiywkosv1rFG14tKtQz36vdGbyOkBwWP vagrant@ansible-master
 
 enable_firewall: true
+
+server_name: "localhost"
+document_root: "/var/www/html"

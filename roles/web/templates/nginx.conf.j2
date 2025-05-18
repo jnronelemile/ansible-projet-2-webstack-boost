@@ -1,0 +1,23 @@
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+
+events {
+  worker_connections 768;
+}
+
+http {
+  server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    server_name {{ server_name }};
+    root {{ document_root }};
+
+    index index.html;
+
+    location / {
+      try_files $uri $uri/ =404;
+    }
+  }
+}
