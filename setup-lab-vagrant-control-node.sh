@@ -34,26 +34,15 @@ echo ""
 echo "Étape 3 - Vérification que l'utilisateur '${TARGET_USER}' existe sur le noeud cible..."
 
 ssh -i "$PRIVATE_KEY_PATH" -o StrictHostKeyChecking=no ${VM_USER}@${VM_IP} "
-  id ${TARGET_USER} 2>/dev/null || sudo useradd -m -s /bin/bash ${TARGET_USER}
+  id ${TARGET_USER} 2>/dev/null 
 "
 
 echo ""
-echo "Étape 4 - Déploiement de la clé publique dans /home/${TARGET_USER}/.ssh/authorized_keys..."
-
-cat "${KEY_PATH}.pub" | ssh -i "${PRIVATE_KEY_PATH}" -o StrictHostKeyChecking=no "${VM_USER}@${VM_IP}" "
-  sudo mkdir -p /home/${TARGET_USER}/.ssh &&
-  sudo tee -a /home/${TARGET_USER}/.ssh/authorized_keys
-  sudo chown -R ${TARGET_USER}:${TARGET_USER} /home/${TARGET_USER}/.ssh &&
-  sudo chmod 600 /home/${TARGET_USER}/.ssh/authorized_keys
-"
-
-
-echo ""
-echo "Étape 5 - Test de connexion SSH en tant que '${TARGET_USER}'..."
+echo "Étape 4 - Test de connexion SSH en tant que '${TARGET_USER}'..."
 ssh -i "${KEY_PATH}" -o StrictHostKeyChecking=no ${TARGET_USER}@${VM_IP} "echo 'Connexion SSH OK'"
 
 echo ""
-echo "Étape 6 - Test de ping Ansible..."
+echo "Étape 5 - Test de ping Ansible..."
 ansible -i ${INVENTORY_PATH} ${VM_NAME} -m ping
 
 echo ""
