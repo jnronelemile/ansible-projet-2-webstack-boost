@@ -1,7 +1,7 @@
 
 # Mini-Projet 2 : Ansible Web stack Boost
 
-## ✅ Objectifs du projet
+## Objectifs du projet
 
 Projet Ansible de niveau intermédiaire (~6/10) pour déployer un environnement web sécurisé avec Vagrant, Ansible et NGINX.
 
@@ -91,4 +91,33 @@ ansible-playbook -i inventory site.yml
 La variable deploy_ssh_key est chargée automatiquement depuis :
 ```yml
 deploy_ssh_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/deploy_key.pub') }}"
+```
+
+# Makefile :  Automatisation du projet 
+
+```makefile
+# Makefile - Automatisation du projet Ansible WebStack Boost
+
+up:
+	vagrant up
+
+destroy:
+	vagrant destroy -f
+
+status:
+	vagrant status
+
+ssh-master:
+	vagrant ssh ansible-master
+
+init-lab:
+	vagrant ssh ansible-master -c "cd /vagrant && ./setup-lab-vagrant-control-node.sh"
+
+deploy:
+	vagrant ssh ansible-master -c "cd /vagrant && ansible-playbook -i inventory site.yml"
+
+logs:
+	vagrant ssh web -c "sudo journalctl -u nginx"
+
+.PHONY: up destroy status ssh-master init-lab deploy logs
 ```
