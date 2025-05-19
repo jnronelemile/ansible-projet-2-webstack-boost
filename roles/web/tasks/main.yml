@@ -19,3 +19,11 @@
     name: nginx
     state: started
     enabled: true
+
+- name: Deployer la page web personnalise
+  file:
+    src: index.html
+    dest: "{{ document_root }}/index.html"
+    owner: www-data
+    group: www-data
+    mode: "0644"

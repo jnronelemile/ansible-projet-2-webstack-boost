@@ -7,5 +7,6 @@ deploy_ssh_key: |
 
 enable_firewall: true
 
-server_name: "localhost"
-document_root: "/var/www/html"
+server_name: localhost
+document_root: /var/www/html
+
