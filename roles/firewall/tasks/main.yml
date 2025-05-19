@@ -3,7 +3,7 @@
 - name: Installer UFW
   apt:
     name: ufw
-    state: presente
+    state: present
     update_cache: yes
 
 - name: Autoriser SSH

@@ -13,7 +13,7 @@
     path: /home/deploy/.ssh
     state: directory
     owner: deploy
-    groups: deploy
+    group: deploy
     mode: '0700'
 
 - name: Autoriser la cle publique SSH pour deploy

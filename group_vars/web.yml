@@ -1,0 +1,13 @@
+
+
+
+#deploy_ssh_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBRP44Zilc/NJ5mrEwvzcI7TZu66Du0CXYjQi/42/KVr vagrant@ansible-master
+
+deploy_ssh_key: "{{ lookup('file', lookup('env', 'HOME') + '/.ssh/deploy_key.pub') }}"
+
+enable_firewall: true
+
+server_name: "localhost"
+
+document_root: "/var/www/html"
+
